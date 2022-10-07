@@ -4,6 +4,11 @@ import { Injectable } from '@angular/core';
 export class LoggingService {
   // @ts-ignore
   public log(...params: Array<any>): void {
-    console.log(new Date(), params);
+    const date = new Date();
+    const mm: string = date.getMinutes().toString().padStart(2, '0');
+    const ss = date.getSeconds().toString().padStart(2, '0');
+    const now: string = `[${mm}:${ss}]`;
+
+    console.log(now, ...params);
   }
 }
